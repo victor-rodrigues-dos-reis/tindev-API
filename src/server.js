@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const routes = require('./routes');
 
@@ -11,6 +12,7 @@ mongoose.connect('mongodb+srv://tindev:tindev@cluster0-k7eex.mongodb.net/tindev?
     useUnifiedTopology: true,   // Habilita a utilização do novo "Server Discover" e "Monitoring engine"
 });
 
+server.use(cors());         // Habilita que outros domínios acessem essa API
 server.use(express.json()); // Habilita compreensão de conteúdos tipo JSON
 server.use(routes);         // Utiliza as rotas cridas
 
