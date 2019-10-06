@@ -16,6 +16,14 @@ const DevSchema = new Schema(
         type: String,
         required: true,
     },
+    likes: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Dev'  // Referencia para um dado da tabela 'Dev' (É tipo uma chave estrangeira)
+    }],
+    dislikes: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Dev'  // Referencia para um dado da tabela 'Dev' (É tipo uma chave estrangeira)
+    }]
 }, {
     timestamps: true,   // Adiciona a criação automática das colunas "createdAt" e "updateAt"
 });
